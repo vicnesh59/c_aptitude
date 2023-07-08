@@ -1,0 +1,42 @@
+Reverse the words
+
+#include <stdio.h>
+#include<string.h>
+
+int main()
+{
+    char a[50];
+    int s=0,u=0;
+    scanf("%[^\n]s",a);
+    int len=strlen(a);
+    for(int i=0;i<len;i++)
+    {
+        if(a[i]==' ')
+        {
+            s++;
+        }
+    }
+    for(int i=0;i<len;i++)
+    {
+        if(a[i]==' ')
+        {
+            u++;
+        }
+        if(u==s)
+        {
+            for(int j=i;j<len;j++)
+            {
+                printf("%c",a[j]);
+            }
+            printf(" ");
+            len=i;
+            u=0;
+            s--;
+            i=-1;
+        }
+    }
+}
+
+Input : i got a pen
+
+Output : pen a got i
