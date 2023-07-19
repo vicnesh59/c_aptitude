@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdbool.h>
+void main()
+{
+    int **coordinates,coordinatesColSize,coordinatesSize;
+    int p;
+    int a[10][10];
+    scanf("%d %d",&coordinatesSize,&p);
+    coordinatesColSize=p;
+    for(int i=0;i<coordinatesSize;i++)
+    {
+        for(int j=0;j<coordinatesColSize;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("%d",checkStraightLine(a,coordinatesSize,coordinatesColSize));
+    
+}
+int checkStraightLine(int c[10][10], int coordinatesSize, int coordinatesColSize){
+
+ int y=c[0][0]-c[0][1];
+ int a,b,flag=0;
+  for(int i=0;i<coordinatesSize;i++)
+  {
+    for(int j=0;j<coordinatesColSize;j++)
+    {
+        if(j==0)
+        {
+          a=c[i][j];
+        }
+        else
+        {
+          b=c[i][j];
+          if(a-b==y)
+          {
+              flag++;
+          }
+          else
+          {
+            return 0;
+          }
+        }
+    }
+  }
+  if(flag==coordinatesSize)
+    return 1;
+  else
+    return 0;
+}

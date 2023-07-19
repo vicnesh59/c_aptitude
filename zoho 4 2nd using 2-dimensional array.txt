@@ -1,0 +1,74 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int n,a[20],b[20],x=0,v,s[20][2];
+    printf("Enter the value of n :");
+    scanf("%d",&n);
+    v=n;
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+        b[i]=a[i];
+    }
+    for(int i=0;i<v;i++)
+    {
+        for(int j=0;j<v;j++)
+        {
+            if(i!=j && b[i]==b[j])
+            {
+                for(int k=j;k<v;k++)
+                {
+                    b[k]=b[k+1];
+                }
+                v--;
+                j--;
+            }
+        }
+    }
+    for(int i=0;i<v;i++)
+    {
+        s[i][0]=b[i];
+    }
+    for(int i=0;i<v;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(s[i][0]==a[j])
+            {
+                s[i][1]++;
+            }
+        }
+    }
+    for(int i=0;i<v;i++)
+    {
+        for(int j=i+1;j<v;j++)
+        {
+            if(s[i][1]>s[j][1])
+            {
+                int t,f;
+                f=s[i][0];
+                t=s[i][1];
+                s[i][0]=s[j][0];
+                s[i][1]=s[j][1];
+                s[j][0]=f;
+                s[j][1]=t;
+            }
+        }
+    }
+    for(int i=0;i<v;i++)
+    {
+        for(int j=0;j<s[i][1];j++)
+        {
+            printf("%d ",s[i][0]);
+        }
+    }
+}

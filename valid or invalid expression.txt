@@ -1,0 +1,55 @@
+
+4) Check whether a given mathematical expression is valid.
+
+    Eg.) Input  : (a+b)(a*b)
+         Output : Valid
+
+         Input  : (ab)(ab+)
+         Output : Invalid
+
+         Input  : ((a+b)
+         Output : Invalid
+
+
+#include <stdio.h>
+#include<string.h>
+int main() {
+    
+    char a[100];
+    int o=0,sy=0;
+    scanf("%[^\n]s",a);
+    int n=strlen(a);
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]=='(')
+        {
+            o++;
+        }
+        if(a[i]==')')
+        {
+            o--;
+        }
+        if(a[i]=='+' || a[i]=='-'|| a[i]=='*'|| a[i]=='/')
+        {
+        if(a[i+1]!='+' && a[i+1]!='-'&& a[i+1]!='*'&& a[i+1]!='/' && a[i+1]!='(' && a[i+1]!=')')
+        {
+            sy++;
+        }
+        if(a[i-1]!='+' && a[i-1]!='-'&& a[i-1]!='*'&& a[i-1]!='/' && a[i-1]!='(' && a[i-1]!=')')
+        {
+            sy--;
+        }
+        }
+        
+    }
+    if(o!=0 || sy!=0)
+    {
+        printf("Invalid");
+    }
+    else
+    {
+        printf("Valid");
+    }
+    return 0;
+    
+}

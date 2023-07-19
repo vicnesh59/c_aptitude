@@ -1,0 +1,81 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+void Insert(int a[20]);
+void Display(int a[20]);
+void Delete(int a[20]);
+int n=0;
+int main()
+{
+    int a[20],choice;
+    printf("Enter the size of an array:");
+    scanf("%d",&n);
+    for(int i=0;i<20;i++)
+    {
+        a[i]=-1;
+    }
+    printf("\n Enter the values:");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    while(choice!=3)
+    {
+    printf("\n1.Insert\n2.Delete\n3.Exit");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+        case 1:
+                Insert(a);
+                Display(a);
+                break;
+        case 2:
+                Delete(a);
+                Display(a);
+                break;
+    }
+    }
+}
+void Insert(int a[])
+{
+    int pos,val;
+    printf("\nEnter the position and the value:");
+    scanf("%d %d",&pos,&val);
+    pos--;
+    a[pos]=val;
+}
+void Delete(int a[])
+{
+    int val;
+    printf("\n Enter the value to delete:");
+    scanf("%d",&val);
+    for(int i=0;i<20;i++)
+    {
+        if(a[i]==val)
+        {
+            a[i]=-1;
+        }
+    }
+}
+void Display(int a[])
+{
+    int y=0;
+    for(int i=0;i<20;i++)
+    {
+        if(a[i]!=-1)
+        {
+            y++;
+            printf("%d, ",a[i]);
+        }
+    }
+    if(y==0)
+    {
+        printf("No values available");
+    }
+}
