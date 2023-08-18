@@ -7,10 +7,7 @@ Write your code in this editor and press "Run" button to compile and execute it.
 *******************************************************************************/
 
 #include <stdio.h>
-struct num{
-    int no;
-    int times;
-}s[10];
+
 int main()
 {
     int n,a[20],b[20],x=0,v;
